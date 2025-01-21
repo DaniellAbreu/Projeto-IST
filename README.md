@@ -1,0 +1,48 @@
+# Projeto da Disciplina Impactos Sociais da Tecnologia.
+
+## Objetivo:
+
+Este projeto tem o objetivo de buscar tecnologias que auxiliem o processo de adaptação de material didático para pessoas cegas ou com baixa visão no âmbito da Universidade de Brasília e da DACES, de modo que o material seja melhor adaptado para leitores de tela e mais acessível a comunidade em geral. Ademais, buscamos promover um mundo mais acessível e igualitário para todos.
+
+## Tema:
+
+Buscar formas de transformar um material digitalizado qualquer em um material acessível em formato HTML5, com a intenção de que o mesmo seja altamente configurável e com amplo suporte a leitores de tela.
+
+## Ferramentas:
+
+Inteligência Artificial: Chat GPT.
+Editores de Texto: Sublime Text, VS Code e Replit.
+Leitores de Tela: NVDA e Microsoft Edge.
+Ferramentas de Conversão de Arquivos: Calibre.
+Ferramentas de Feedback/Sites de Consulta: WAVE, W3C
+
+## Implementação/Afazeres:
+
+Encontrar Tags de Acessibilidade para HTML5 - 
+Colocar o HTML5 em um servidor Host para colocar nos sites de Feedback e conferir acessibilidade -
+Testar continuamente HTML5 com Leitores de Tela: NVDA e Microsoft Edge -
+Fazer um Menu interativo com várias formas de modificar o material -
+(Posteriormente) Buscar pacotes HTML5 para leitura de Equações -
+
+
+## Inputs de IA:
+
+Olá! Estou trabalhando atualmente em um projeto que visa adaptar materiais didáticos digitais não acessíveis para pessoas com baixa visão e pessoas cegas. Queremos criar um arquivo HTML5 com a maior quantidade de tags de acessibilidades possíveis além de também estar de acordo com os modelos do W3C de acessibilidade. Você poderia criar um arquivo HTML5 base desse modelo? E descrever as principais tags utilizadas?
+
+// Retorna um arquivo HTML conforme o modelo 1...
+
+## Contato: (Adicionar membros)
+<table>
+  <tr>
+    <td align="center">
+    <a href="https://github.com/DaniellAbreu">
+    <img style="border-radius: 50%;" 
+    src="https://github.com/DaniellAbreu.png" 
+    width="120;" 
+    alt="Aluno: Daniel Abreu"/>
+    <br />
+    <sub><b>Daniel Abreu</b></sub></a>
+    <br />
+    </td>
+  </tr>
+</table>

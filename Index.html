@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modelo acessível de HTML5 para materiais didáticos.">
+    <title>Experimento 2-2 - Análise Gráfica</title>
+    
+    <!-- Importação de estilos para contraste e legibilidade -->
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            color: #000;
+            background-color: #fff;
+            margin: 0 0 0 20px; /* Margem inicial à esquerda */
+            overflow-x: hidden;
+            transition: margin-left 0.3s, background-color 0.3s;
+        }
+        #menu-icon {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            font-size: 32px; /* Aumentei o tamanho dos tracinhos */
+            cursor: pointer;
+            z-index: 1000;
+        }
+        #controls {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background: #f9f9f9;
+            border-right: 2px solid #ccc;
+            padding: 20px;
+            overflow-y: auto;
+            transition: left 0.3s;
+            z-index: 999;
+        }
+        #controls header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #font-size-container {
+            display: flex;
+            align-items: center;
+        }
+        #font-size-container button {
+            font-size: inherit;
+            padding: 5px 10px;
+            margin: 0 5px;
+        }
+        #font-size-container input {
+            width: 60px;
+            text-align: center;
+        }
+        #content {
+            margin: 20px;
+            margin-left: 40px; /* Afastei mais do lado esquerdo */
+            transition: margin-left 0.3s;
+        }
+        #search-container {
+            margin-top: 20px;
+        }
+        #search-container input {
+            width: calc(100% - 40px);
+            padding: 5px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Ícone do menu -->
+    <div id="menu-icon">&#9776;</div>
+
+    <!-- Controles de acessibilidade -->
+    <div id="controls">
+        <br>
+        <header>
+            <h3>Controle de Acessibilidade</h3>
+        </header>
+        <div id="controls-content">
+            <label for="font-family">Tipo de Fonte:</label>
+            <select id="font-family">
+                <option value="Arial">Arial</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select><br><br>
+
+            <label for="color">Cor do Texto:</label>
+            <input type="color" id="color" value="#000000"><br><br>
+
+            <label for="background">Cor de Fundo:</label>
+            <input type="color" id="background" value="#ffffff"><br><br>
+
+            <div id="search-container">
+                <label for="search">Pesquisar no texto:</label>
+                <input type="text" id="search" placeholder="Digite algo...">
+                <button id="search-btn">🔍</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Conteúdo principal -->
+    <div id="content">
+        <header>
+            <h1>Experimento 2-2 - Análise Gráfica Através do Computador</h1>
+        </header>
+        
+        <section>
+            <h2>Introdução</h2>
+            <p>
+                Neste experimento você aprenderá a construir gráficos com um programa computacional. 
+                O objetivo é usar esse recurso computacional para construir e analisar gráficos e, em particular, 
+                aprender sobre ajuste de curvas a um conjunto de dados experimentais.
+            </p>
+        </section>
+    
+        <!-- Adicione mais conteúdo aqui -->
+    
+    </div>
+
+
+    <script>
+        const menuIcon = document.getElementById('menu-icon');
+        const controls = document.getElementById('controls');
+        const content = document.getElementById('content');
+        const backgroundInput = document.getElementById('background');
+        const searchInput = document.getElementById('search');
+        const searchBtn = document.getElementById('search-btn');
+
+        // Controle do menu lateral
+        menuIcon.addEventListener('click', () => {
+            if (controls.style.left === '0px') {
+                controls.style.left = '-250px';
+                content.style.marginLeft = '40px'; // Retorna margem inicial
+            } else {
+                controls.style.left = '0px';
+                content.style.marginLeft = '250px';
+            }
+        });
+
+        // Ajuste da cor de fundo
+        backgroundInput.addEventListener('input', function() {
+            document.body.style.backgroundColor = this.value;
+            controls.style.backgroundColor = this.value;
+        });
+
+        // Pesquisa no texto
+        searchBtn.addEventListener('click', () => {
+            const searchValue = searchInput.value.toLowerCase();
+            const paragraphs = content.querySelectorAll('p');
+            paragraphs.forEach(p => {
+                if (p.textContent.toLowerCase().includes(searchValue)) {
+                    p.style.backgroundColor = 'yellow';
+                } else {
+                    p.style.backgroundColor = 'transparent';
+                }
+            });
+        });
+
+        // Alteração de fonte e cor do texto
+        document.getElementById('font-family').addEventListener('change', function() {
+            document.body.style.fontFamily = this.value;
+        });
+
+        document.getElementById('color').addEventListener('input', function() {
+            document.body.style.color = this.value;
+        });
+    </script>
+</body>
+</html>

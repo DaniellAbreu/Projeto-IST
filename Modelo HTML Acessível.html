@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Modelo acessível de HTML5 para materiais didáticos.">
+    <title>Material Didático Acessível</title>
+    <!-- Importação de estilos para contraste e legibilidade -->
+    <style>
+        body {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #000000;
+            background-color: #ffffff;
+        }
+        a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        a:focus, a:hover {
+            outline: 2px solid #0056b3;
+            background-color: #e0f7fa;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Material Didático Acessível</h1>
+        <nav>
+            <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#conteudo">Conteúdo</a></li>
+                <li><a href="#referencias">Referências</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section id="introducao" aria-labelledby="introducao-titulo">
+            <h2 id="introducao-titulo">Introdução</h2>
+            <p>Este material foi desenvolvido para ser acessível a todos, incluindo pessoas com baixa visão e pessoas cegas.</p>
+        </section>
+        
+        <section id="conteudo" aria-labelledby="conteudo-titulo">
+            <h2 id="conteudo-titulo">Conteúdo</h2>
+            <article>
+                <header>
+                    <h3>Título do Artigo</h3>
+                </header>
+                <p>Este é um exemplo de parágrafo. Aqui é possível descrever o conteúdo de forma clara e acessível.</p>
+                <figure>
+                    <img src="exemplo.jpg" alt="Descrição clara da imagem apresentada">
+                    <figcaption>Figura 1: Descrição da imagem.</figcaption>
+                </figure>
+            </article>
+        </section>
+        
+        <section id="referencias" aria-labelledby="referencias-titulo">
+            <h2 id="referencias-titulo">Referências</h2>
+            <ul>
+                <li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener">Web Accessibility Initiative</a></li>
+                <li><a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener">WCAG 2.1</a></li>
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>Desenvolvido por [Seu Nome ou Equipe]</p>
+    </footer>
+</body>
+</html>
