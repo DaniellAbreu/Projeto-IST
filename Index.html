@@ -12,25 +12,36 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 16px;
+            font-size: 1rem;
+            line-height: 1.5;
             color: #000;
             background-color: #fff;
-            margin: 0 0 0 20px; /* Margem inicial à esquerda */
+            margin: 0 0 0 40px;
             overflow-x: hidden;
             transition: margin-left 0.3s, background-color 0.3s;
         }
+        
+        a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        a:focus, a:hover {
+            outline: 2px solid #0056b3;
+            background-color: #e0f7fa;
+        }
+
         #menu-icon {
             position: fixed;
             top: 10px;
-            left: 10px;
-            font-size: 32px; /* Aumentei o tamanho dos tracinhos */
+            left: 20px;
+            font-size: 32px;
             cursor: pointer;
             z-index: 1000;
         }
         #controls {
             position: fixed;
             top: 0;
-            left: -250px;
+            left: -300px;
             width: 250px;
             height: 100%;
             background: #f9f9f9;
@@ -60,7 +71,7 @@
         }
         #content {
             margin: 20px;
-            margin-left: 40px; /* Afastei mais do lado esquerdo */
+            margin-left: 40px;
             transition: margin-left 0.3s;
         }
         #search-container {
@@ -78,7 +89,7 @@
     <!-- Ícone do menu -->
     <div id="menu-icon">&#9776;</div>
 
-    <!-- Controles de acessibilidade -->
+    <!-- Controle de acessibilidade -->
     <div id="controls">
         <br>
         <header>
@@ -111,19 +122,58 @@
     <!-- Conteúdo principal -->
     <div id="content">
         <header>
-            <h1>Experimento 2-2 - Análise Gráfica Através do Computador</h1>
+            <h2>Sumário</h2>
+            <nav>
+                <ul>
+                    <li><a href="#introducao">Introdução</a></li>
+                    <li><a href="#conteudo">Conteúdo</a></li>
+                    <li><a href="#referencias">Referências</a></li>
+                </ul>
+            </nav>
         </header>
         
-        <section>
-            <h2>Introdução</h2>
-            <p>
-                Neste experimento você aprenderá a construir gráficos com um programa computacional. 
-                O objetivo é usar esse recurso computacional para construir e analisar gráficos e, em particular, 
-                aprender sobre ajuste de curvas a um conjunto de dados experimentais.
-            </p>
-        </section>
-    
-        <!-- Adicione mais conteúdo aqui -->
+        <main>
+            <header>
+                <h1>Experimento 2-2 - Análise Gráfica Através do Computador</h1>
+            </header>
+
+            <section id="introducao" aria-labelledby="introducao-titulo">
+                <h2>Introdução</h2>
+                <p>
+                    Neste experimento você aprenderá a construir gráficos com um programa computacional. 
+                    O objetivo é usar esse recurso computacional para construir e analisar gráficos e, em particular, 
+                    aprender sobre ajuste de curvas a um conjunto de dados experimentais.
+                </p>
+            </section>
+
+            <section id="conteudo" aria-labelledby="conteudo-titulo">
+                <h2>Conteúdo</h2>
+                <p>
+                    Podemos acreditar que tudo que a vida nos oferecerá no futuro é repetir o que fizemos ontem e hoje. 
+                    Mas, se prestarmos atenção, vamos nos dar conta de que nenhum dia é igual a outro. 
+                    Cada manhã traz uma bênção escondida; uma bênção que só serve para esse dia e que não se pode guardar nem desaproveitar. 
+                    Se não usamos este milagre hoje, ele vai se perder. Este milagre está nos detalhes do cotidiano; 
+                    é preciso viver cada minuto porque ali encontramos a saída de nossas confusões, a alegria de nossos bons momentos, 
+                    a pista correta para a decisão que tomaremos. Nunca podemos deixar que cada dia pareça igual ao anterior porque todos os dias são diferentes, 
+                    porque estamos em constante processo de mudança.
+                </p>
+            </section>
+            
+            <section id="referencias" aria-labelledby="referencias-titulo">
+                <h2 id="referencias-titulo">Referências</h2>
+                <ul>
+                    <li><a href="https://www.w3.org/WAI/" target="_blank" rel="noopener">Web Accessibility Initiative</a></li>
+                    <li><a href="https://www.w3.org/TR/WCAG21/" target="_blank" rel="noopener">WCAG 2.1</a></li>
+                </ul>
+            </section>
+            
+            <!-- Adicione mais conteúdo aqui -->
+
+        </main>
+            
+            <footer>
+                <p>Desenvolvido por [Seu Nome ou Equipe]</p>
+            </footer>
     
     </div>
 
@@ -136,18 +186,23 @@
         const searchInput = document.getElementById('search');
         const searchBtn = document.getElementById('search-btn');
 
-        // Controle do menu lateral
+        // Controle do Menu Lateral
         menuIcon.addEventListener('click', () => {
             if (controls.style.left === '0px') {
-                controls.style.left = '-250px';
-                content.style.marginLeft = '40px'; // Retorna margem inicial
+                controls.style.left = '-300px';
+                content.style.marginLeft = '40px';
             } else {
                 controls.style.left = '0px';
-                content.style.marginLeft = '250px';
+                content.style.marginLeft = '270px';
             }
         });
 
-        // Ajuste da cor de fundo
+        // Ajuste da Cor do Texto
+        document.getElementById('color').addEventListener('input', function() {
+            document.body.style.color = this.value;
+        });
+
+        // Ajuste da Cor de Fundo
         backgroundInput.addEventListener('input', function() {
             document.body.style.backgroundColor = this.value;
             controls.style.backgroundColor = this.value;
@@ -166,14 +221,11 @@
             });
         });
 
-        // Alteração de fonte e cor do texto
+        // Alteração de fonte do texto
         document.getElementById('font-family').addEventListener('change', function() {
             document.body.style.fontFamily = this.value;
         });
-
-        document.getElementById('color').addEventListener('input', function() {
-            document.body.style.color = this.value;
-        });
     </script>
+
 </body>
 </html>
