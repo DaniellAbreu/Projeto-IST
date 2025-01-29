@@ -23,14 +23,33 @@
             padding: 0;
         }
 
+        a {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+        a:focus, a:hover {
+            outline: 2px solid #0056b3;
+            background-color: #e0f7fa;
+        }
+
         header {
             background: #0073e6;
             color: white;
             padding: 10px;
             text-align: center;
-            position: sticky;
             top: 0;
             z-index: 10;
+        }
+
+        #menu-icon {
+            position: fixed;
+            color: #000;
+            background: #dbdbdb;
+            top: 10px;
+            left: 15px;
+            font-size: 32px;
+            cursor: pointer;
+            z-index: 1000;
         }
 
         #upload-container {
@@ -49,20 +68,25 @@
             justify-content: space-around;
             padding: 10px;
             background: #f9f9f9;
-            border-top: 1px solid #ccc;
-            position: sticky;
-            top: 50px;
+            border: 1px solid #ccc;
+            top: 10;
+            position: static;
             z-index: 9;
+            margin-left: 75px;
+            margin-right: 25px;
         }
 
         #editor {
-            margin: 20px;
+            margin-left: 75px;
+            margin-right: 25px;
+            margin-bottom: 25px;
             padding: 20px;
             background: white;
             border: 1px solid #ccc;
-            min-height: 300px;
+            min-height: 400px;
             overflow: auto;
             font-size: 16px;
+            transition: margin-left 0.3s, background-color 0.3s;
         }
 
         .control-group {
@@ -72,6 +96,10 @@
 </head>
 
 <body>
+    <!-- Ícone do menu -->
+    <header id="menu-icon">&#9776;</header>
+    
+    <!-- Controle de acessibilidade -->
     <header>
         <h1>Editor de Acessibilidade</h1>
     </header>
@@ -83,7 +111,7 @@
 
     <div id="controls">
         <div class="control-group">
-            <label for="font-family">Fonte:</label>
+            <label for="font-family">Estilo de Fonte:</label>
             <select id="font-family">
                 <option value="Arial">Arial</option>
                 <option value="Verdana">Verdana</option>
@@ -98,11 +126,20 @@
             <input type="number" id="font-size" value="16" min="10" max="100" style="width: 50px;" disabled>
             <button id="increase-font">+</button>
         </div>
+        
+        <div class="control-group">
+            <select>
+                <option id="align-left">Alinhar à Esquerda</option>
+                <option id="align-center">Centralizar</option>
+                <option id="align-right">Alinhar à Direita</option>
+                <option id="align-justify">Justificar</option>
+            </select>
+        </div>
 
         <div class="control-group">
             <label for="color">Cor do Texto:</label>
             <input type="color" id="color" value="#000000">
-        </div>
+        </div><br>
 
         <div class="control-group">
             <label for="background">Cor do Fundo:</label>
@@ -110,16 +147,14 @@
         </div>
 
         <div class="control-group">
-            <button id="align-left">Alinhar à Esquerda</button>
-            <button id="align-center">Centralizar</button>
-            <button id="align-right">Alinhar à Direita</button>
-            <button id="align-justify">Justificar</button>
+            <button id="toggle-edit">Modo Leitura</button>
         </div>
     </div>
 
     <div id="editor" contenteditable="true">Carregue um arquivo para começar a editar...</div>
 
     <script>
+        const menuIcon = document.getElementById('menu-icon');
         const fileUpload = document.getElementById('file-upload');
         const editor = document.getElementById('editor');
         const fontFamily = document.getElementById('font-family');
@@ -132,7 +167,9 @@
         const alignCenter = document.getElementById('align-center');
         const alignRight = document.getElementById('align-right');
         const alignJustify = document.getElementById('align-justify');
-
+        const toggleEditButton = document.getElementById('toggle-edit');
+        let isEditable = true;
+        
         // Atualizar estilo do editor
         fontFamily.addEventListener('change', () => {
             editor.style.fontFamily = fontFamily.value;
@@ -177,6 +214,12 @@
 
         alignJustify.addEventListener('click', () => {
             editor.style.textAlign = 'justify';
+        });
+
+        toggleEditButton.addEventListener('click', () => {
+            isEditable = !isEditable;
+            editor.contentEditable = isEditable ? "true" : "false";
+            toggleEditButton.textContent = isEditable ? 'Modo Leitura' : 'Desabilitar Modo Leitura';
         });
 
         // Upload do arquivo
