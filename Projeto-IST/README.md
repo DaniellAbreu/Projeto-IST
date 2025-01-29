@@ -46,7 +46,9 @@ Fazer um Menu interativo com várias formas de modificar o material -
     <br />
     </td>
   </tr>
-    <tr>
+</table>
+<table>
+      <tr>
     <td align="center">
     <a href="https://github.com/oguitom2015">
     <img style="border-radius: 50%;" 
